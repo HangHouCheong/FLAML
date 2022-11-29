@@ -75,6 +75,9 @@ def test_automl(budget=5, dataset_format="dataframe", hpo_method=None):
     print(
         "roc_auc", "=", 1 - sklearn_metric_loss_score("roc_auc", y_pred_proba, y_test)
     )
+    print(
+        "roc_auc_weighted", "=", 1 - sklearn_metric_loss_score("roc_auc_weighted", y_pred_proba, y_test)
+    )
     print("log_loss", "=", sklearn_metric_loss_score("log_loss", y_pred_proba, y_test))
     if budget is None:
         assert accuracy >= 0.669, "the accuracy of flaml should be larger than 0.67"
